@@ -22,7 +22,8 @@ const getUserChoice = userInput => {
     userInput = userInput.toLowerCase();
     if (userInput === 'rock' || 
     userInput === 'scissors' || 
-    userInput ===  'paper'){
+    userInput ===  'paper'|| 
+    userInput === 'bypass'){
       return userInput;
     } else {
       console.log('Error! Please type: rock, paper or scissors.');
@@ -62,7 +63,7 @@ const getUserChoice = userInput => {
   // scissors
   // rock
   
-  // Determine winner
+  // Determine winner (compare choices)
   const determineWinner = (userChoice, computerChoice) => {
     // tie
     if (userChoice === computerChoice) {
@@ -91,6 +92,12 @@ const getUserChoice = userInput => {
         return "Congratulations! You won!"
       }
     }
+  
+  // secret cheat code
+  // user will always win!
+    if (userChoice === 'bypass') {
+      return "Congratulations! You won!"
+    }
   };
   
   // test determineWinner function
@@ -107,12 +114,12 @@ const getUserChoice = userInput => {
   // start game and log the results
   const playGame = () => {
     const userChoice = 
-    getUserChoice('paper');
+    getUserChoice('Paper');
     const computerChoice = 
     getComputerChoice();
-  // console.log(`You threw ${userChoice}`);
+  // console.log(`Your choice:  ${userChoice}`);
     console.log('Your choice: ' + userChoice);
-    // console.log(`The computer threw ${computerChoice}`);
+    // console.log(`Computer choice:  ${computerChoice}`);
     console.log('Computer choice: ' + computerChoice);
   
   // Winner
@@ -136,17 +143,20 @@ const getUserChoice = userInput => {
   // Computer choice: paper
   // It's a tie!
   
+  // secret cheat code allows user to always win against the computer
+  // Output 1
+  // Your choice: bypass
+  // Computer choice: rock
+  // Congratulations! You won!
   
+  // Output 2
+  // Your choice: bypass
+  // Computer choice: paper
+  // Congratulations! You won!
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  // Output 3
+  // Your choice: bypass
+  // Computer choice: scissors
+  // Congratulations! You won!
   
   
