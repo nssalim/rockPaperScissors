@@ -19,144 +19,143 @@
 // make all input lowercase
 // ensure user enters valid choice (‘rock’, ‘paper’, or ‘scissors’).
 const getUserChoice = userInput => {
-    userInput = userInput.toLowerCase();
-    if (userInput === 'rock' || 
-    userInput === 'scissors' || 
-    userInput ===  'paper'|| 
-    userInput === 'bypass'){
-      return userInput;
-    } else {
-      console.log('Error! Please type: rock, paper or scissors.');
-    }
+  userInput = userInput.toLowerCase();
+  if (userInput === 'rock' || 
+  userInput === 'scissors' || 
+  userInput ===  'paper'|| 
+  userInput === 'bypass'){
+    return userInput;
+  } else {
+    console.log('Error! Please type: rock, paper or scissors.');
   }
-  
-  // test getUserChoice function
-  // valid input
-  // console.log(getUserChoice('rock'));
-  // rock
-  
-  // invalid input
-  // console.log(getUserChoice('stapler'));
-  // Output
-  // Error! Please type: rock, paper or scissors.
-  
-  // computer makes a choice to pick ‘rock’, ‘paper’, or ‘scissors’ 
-  const getComputerChoice = () => {
-    const randomNumber = 
-    Math.floor(Math.random() * 3);
-      switch (randomNumber){
-        case 0:
-          return 'rock';
-        case 1:
-          return 'paper';
-        case 2:
-          return 'scissors'
-      }
-  };
-  
-  // test getComputerChoice function can randomly generate 'rock', 'paper' or 'scissors'
-  // console.log(getComputerChoice());
-  // console.log(getComputerChoice());
-  // console.log(getComputerChoice());
-  // Output
-  // paper
-  // scissors
-  // rock
-  
-  // Determine winner (compare choices)
-  const determineWinner = (userChoice, computerChoice) => {
-    // tie
-    if (userChoice === computerChoice) {
-      return 'It\'s a tie!';
+}
+
+// test getUserChoice function
+// valid input
+// console.log(getUserChoice('rock'));
+// rock
+
+// invalid input
+// console.log(getUserChoice('stapler'));
+// Output
+// Error! Please type: rock, paper or scissors.
+
+// computer makes a choice to pick ‘rock’, ‘paper’, or ‘scissors’ 
+const getComputerChoice = () => {
+  const randomNumber = 
+  Math.floor(Math.random() * 3);
+    switch (randomNumber){
+      case 0:
+        return 'rock';
+      case 1:
+        return 'paper';
+      case 2:
+        return 'scissors'
     }
-    if (userChoice === 'scissors') {
-      if (computerChoice === 'rock') {
-        return "Sorry! Computer won!";
-      } else {
-        return "Congratulations! You won!"
-      }
-    }
-  
-    if (userChoice === 'scissors') {
-      if (computerChoice === 'paper') {
-        return "Sorry! Computer won!";
-      } else {
-        return "Congratulations! You won!"
-      }
-    }
-  
-    if (userChoice === 'paper') {
-      if (computerChoice === 'rock') {
-        return "Sorry! Computer won!";
-      } else {
-        return "Congratulations! You won!"
-      }
-    }
-  
-  // secret cheat code
-  // user will always win!
-    if (userChoice === 'bypass') {
+};
+
+// test getComputerChoice function can randomly generate 'rock', 'paper' or 'scissors'
+// console.log(getComputerChoice());
+// console.log(getComputerChoice());
+// console.log(getComputerChoice());
+// Output
+// paper
+// scissors
+// rock
+
+// Determine winner (compare choices)
+const determineWinner = (userChoice, computerChoice) => {
+  // tie
+  if (userChoice === computerChoice) {
+    return 'It\'s a tie!';
+  }
+  if (userChoice === 'scissors') {
+    if (computerChoice === 'rock') {
+      return "Sorry! Computer won!";
+    } else {
       return "Congratulations! You won!"
     }
-  };
-  
-  // test determineWinner function
-  // console.log(determineWinner('scissors', 'rock'));
-  // console.log(determineWinner('scissors', 'paper'));
-  // console.log(determineWinner('paper', 'rock'));
-  // console.log(determineWinner('paper', 'paper'));
-  // Output
-  // Sorry! Computer won!
-  // Congratulations! You won!
-  // Sorry! Computer won!
-  // It's a tie!
-  
-  // start game and log the results
-  const playGame = () => {
-    const userChoice = 
-    getUserChoice('Paper');
-    const computerChoice = 
-    getComputerChoice();
-  // console.log(`Your choice:  ${userChoice}`);
-    console.log('Your choice: ' + userChoice);
-    // console.log(`Computer choice:  ${computerChoice}`);
-    console.log('Computer choice: ' + computerChoice);
-  
-  // Winner
-    console.log(determineWinner(userChoice, computerChoice));
-  };
-  
-  // start game
-  playGame()
-  // Output 1
-  // Your choice: paper
-  // Computer choice: scissors
-  // Congratulations! You won!
-  
-  // Output 2
-  // Your choice: paper
-  // Computer choice: rock
-  // Sorry! Computer won!
-  
-  // Output 3
-  // Your choice: paper
-  // Computer choice: paper
-  // It's a tie!
-  
-  // secret cheat code allows user to always win against the computer
-  // Output 1
-  // Your choice: bypass
-  // Computer choice: rock
-  // Congratulations! You won!
-  
-  // Output 2
-  // Your choice: bypass
-  // Computer choice: paper
-  // Congratulations! You won!
-  
-  // Output 3
-  // Your choice: bypass
-  // Computer choice: scissors
-  // Congratulations! You won!
-  
-  
+  }
+
+  if (userChoice === 'scissors') {
+    if (computerChoice === 'paper') {
+      return "Congratulations! You won!";
+    } else {
+      return "Sorry! Computer won!"
+    }
+  }
+
+  if (userChoice === 'paper') {
+    if (computerChoice === 'rock') {
+      return "Congratulations! You won!";
+    } else {
+      return "Sorry! Computer won!"
+    }
+  }
+
+// secret cheat code
+// user will always win!
+  if (userChoice === 'bypass') {
+    return "Congratulations! You won!"
+  }
+};
+
+// test determineWinner function
+// console.log(determineWinner('scissors', 'rock'));
+// console.log(determineWinner('scissors', 'paper'));
+// console.log(determineWinner('paper', 'rock'));
+// console.log(determineWinner('paper', 'paper'));
+// Output
+// Sorry! Computer won!
+// Congratulations! You won!
+// Sorry! Computer won!
+// It's a tie!
+
+// start game and log the results
+const playGame = () => {
+  const userChoice = 
+  getUserChoice('Paper');
+  const computerChoice = 
+  getComputerChoice();
+// console.log(`Your choice:  ${userChoice}`);
+  console.log('Your choice: ' + userChoice);
+  // console.log(`Computer choice:  ${computerChoice}`);
+  console.log('Computer choice: ' + computerChoice);
+
+// Winner
+  console.log(determineWinner(userChoice, computerChoice));
+};
+
+// start game
+playGame()
+// Output 1
+// Your choice: paper
+// Computer choice: scissors
+// Sorry! Computer won!
+
+// Output 2
+// Your choice: paper
+// Computer choice: rock
+// Congratulations! You won!
+
+// Output 3
+// Your choice: paper
+// Computer choice: paper
+// It's a tie!
+
+// secret cheat code allows user to always win against the computer
+// Output 1
+// Your choice: bypass
+// Computer choice: rock
+// Congratulations! You won!
+
+// Output 2
+// Your choice: bypass
+// Computer choice: paper
+// Congratulations! You won!
+
+// Output 3
+// Your choice: bypass
+// Computer choice: scissors
+// Congratulations! You won!
+
